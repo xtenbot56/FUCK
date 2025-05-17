@@ -1,34 +1,54 @@
-const axios = require("axios");
+const axios = require('axios');
 
-module.exports = {
-	config: {
-		name: "teach",
-		aliases: ["simteach"],
-		version: "1.0",
-		author: "KENLIEPLAYS",
-		countDown: 5,
-		role: 0,
-		shortDescription: {
-			en: "teach sammy"
-		},
-		longDescription: {
-			en: "teach sammy"
-		},
-		category: "teach",
-		guide:{
-			en: "{p}teach your ask | my answer "
-		}
-	},
-	onStart: async function ({ api, event, args }) {
-		const { messageID, threadID, senderID, body } = event;
-		const tid = threadID,
-					mid = messageID;
-		const content = args.join(" ").split("|").map(item => item.trim());
-		const ask = encodeURIComponent(content[0]);
-		const ans = encodeURIComponent(content[1]);
-		if (!args[0]) return api.sendMessage("Use .teach your ask | Sammy respond", tid, mid);
-		const res = await axios.get(`https://simsimi.fun/api/v2/?mode=teach&lang=en&message=${ask}&answer=${ans}`);
-		const responseMessage = res.data.success;
-		api.sendMessage(responseMessage, tid, mid);
-	}
+const baseApiUrl = async () => {
+    return "https://mahabub-simsimi-api.onrender.com/mahabub_x_imran";
+};
+
+module.exports.config = {
+    name: "teach",
+    aliases: ["learn"],
+    version: "1.0.0",
+    author: "MR᭄﹅ MAHABUB﹅ メꪜ",  
+    countDown: 0,
+    role: 0,
+    description: "Teach Mahabub simsimi api new responses!",  
+    category: "chat",
+    guide: {
+        en: "{pn} [message] - [reply]"
+    }
+};
+
+module.exports.onStart = async ({ api, event, args }) => {
+    const link = await baseApiUrl();
+    const userMessage = args.join(" ").toLowerCase();
+
+    try {
+        if (!args[0] || !userMessage.includes(" - ")) {
+            return api.sendMessage('❌ | Use format: teach [message] - [reply]', event.threadID, event.messageID);
+        }
+
+      const [teachMessage, teachReply] = userMessage.split(" - ");
+        const teachAns = teachReply;  
+        if (!teachMessage || !teachReply || !teachAns) {
+            return api.sendMessage('❌ | All parameters (teachMessage, teachReply, and teachAns) must be provided and valid!', event.threadID, event.messageID);
+        }
+
+        const url = `${link}?teach=${encodeURIComponent(teachMessage)}&reply=${encodeURIComponent(teachReply)}&ans=${encodeURIComponent(teachAns)}`;
+        console.log('Request URL:', url);
+
+        const response = await axios.get(url);
+
+        console.log('API Response:', response.data);
+
+     if (response.data && response.data.message) {
+            // Show the message returned by the API
+            return api.sendMessage(`✅ MR᭄﹅ MAHABUB﹅ メꪜ: "${teachMessage}" → ${response.data.message}`, event.threadID, event.messageID);
+        } else {
+            return api.sendMessage('❌ | There was an issue teaching the bot. Please try again!', event.threadID, event.messageID);
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        return api.sendMessage(`❌ Mahabub's AI Error: ${error.message}`, event.threadID, event.messageID);
+    }
 };

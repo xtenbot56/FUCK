@@ -1,22 +1,54 @@
-module.exports = {
- config: {
-	 name: "gf",
-	 version: "1.0",
-	 author: "AceGun",
-	 countDown: 5,
-	 role: 0,
-	 shortDescription: "no prefix",
-	 longDescription: "no prefix",
-	 category: "no prefix",
- },
+const axios = require("axios");
+const fs = require("fs");
+const path = require("path");
 
- onStart: async function(){}, 
- onChat: async function({ event, message, getLang }) {
- if (event.body && event.body.toLowerCase() === "gf") {
- return message.reply({
- body: " 「 BESSAR BUKE\n\n𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥\n𝐌𝐎𝐇𝐀𝐌𝐌𝐀𝐃 𝐁𝐀𝐘𝐉𝐈𝐃」",
- attachment: await global.utils.getStreamFromURL("https://i.imgur.com/nWD4xk3.mp4")
- });
- }
- }
+module.exports = {
+  config: {
+    name: "gf",
+    version: "1.4",
+    author: "MAHABUB RAHMAN",
+    countDown: 5,
+    role: 0,
+    shortDescription: "Send GF pic with title",
+    longDescription: "Sends a GF image with message and author from API or keywords like 'gf de'",
+    category: "fun",
+    guide: "{pn}"
+  },
+
+  onStart: async function ({ api, event }) {
+    return sendGf(api, event);
+  },
+
+  onChat: async function ({ event, api }) {
+    const message = event.body?.toLowerCase();
+    if (!message) return;
+
+    const triggerWords = ["gf", "gf de", "bot gf de"];
+    if (triggerWords.includes(message.trim())) {
+      return sendGf(api, event);
+    }
+  }
+};
+
+async function sendGf(api, event) {
+  try {
+    const res = await axios.get("https://gf-api-kie2.onrender.com/mahabubgf");
+    const { title, url } = res.data.data;
+    const authorName = res.data.author.name;
+
+    const fullMessage = `❥┈•${title}\n\nAuthor: ${authorName}....`;
+
+    const imgPath = path.join(__dirname, "cache", `gf.jpg`);
+    const imgRes = await axios.get(url, { responseType: "arraybuffer" });
+    fs.writeFileSync(imgPath, Buffer.from(imgRes.data, "binary"));
+
+    api.sendMessage({
+      body: fullMessage,
+      attachment: fs.createReadStream(imgPath)
+    }, event.threadID, () => fs.unlinkSync(imgPath), event.messageID);
+
+  } catch (err) {
+    console.error(err);
+    api.sendMessage("error fetching data.", event.threadID, event.messageID);
+  }
 }

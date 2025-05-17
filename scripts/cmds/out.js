@@ -3,8 +3,8 @@ const fs = require("fs-extra");
 const request = require("request");
 module.exports = {
 config: {
-name: "Out",
-aliases: ["l"],
+name: "out",
+aliases: ["leave"],
 version: "1.0",
 author: "Sandy",
 countDown: 5,
@@ -25,6 +25,6 @@ id = event.threadID;
 } else {
 id = parseInt(args.join(" "));
 }
-return api.sendMessage('▣𝗔𝗬𝗔𝗡 𝗕𝗢𝗧 𝗟𝗘𝗔𝗩𝗘:\n》Ami toder sukh dewar jonno Ashchilam tora etar joggo na.\n\n➤𝗕𝗘𝗬 𝗟𝗘𝗦 𝗡𝗔𝗭𝗘𝗦', id, () => api.removeUserFromGroup(api.getCurrentUserID(), id))
+return api.sendMessage('I HAVE TO LEAVE NOW. BYE BYE 😞🫶', id, () => api.removeUserFromGroup(api.getCurrentUserID(), id))
 }
 }

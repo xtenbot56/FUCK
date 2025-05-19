@@ -32,10 +32,10 @@ module.exports = {
   },
 
   sendInfo: async function (message) {
-    const botName = "🕸️ 𝐒𝐩𝐢𝐝𝐞𝐘🕷️";
-    const authorName = "Ma-Hi";
-    const authorFB = "fb.com/mahi68x";
-    const authorInsta = "raadx102";
+    const botName = "🕸️ 🅝🅔🅩🅤🅚🅞 🕷️";
+    const authorName = "🅗🅤🅢🅢🅐🅘🅝";
+    const authorFB = "HUSSAIN";
+    const authorInsta = "bal demu🫶🏻";
     const status = "𝗦𝗶𝗻𝗴𝗹𝗲";
 
     const now = moment().tz('Asia/Dhaka');
@@ -47,12 +47,12 @@ module.exports = {
     const hours = Math.floor((uptime / (60 * 60)) % 24);
     const uptimeString = `${hours}h ${minutes}m ${seconds}s`;
 
-    const videoUrl = "https://files.catbox.moe/t73j7v.mp4";
+    const videoUrl = "https://res.cloudinary.com/mahiexe/video/upload/v1747641409/mahi/1747641408014-405678664.mp4";
 
     const body = `
 
 ┏━━━━━━━━━━━━━━━━┓
-┃ 🧑 Admin Info
+┃ 🌚 Admin Info
 ┃ ╰➤ Name: ${authorName}
 ┃ ╰➤ Facebook: ${authorFB}
 ┃ ╰➤ Instagram: ${authorInsta}

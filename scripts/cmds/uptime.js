@@ -53,7 +53,7 @@ module.exports = {
       if (hours === 0) uptimeFormatted = `⏳ ${minutes}m ${seconds}s`;
       if (minutes === 0) uptimeFormatted = `⏳ ${seconds}s`;
 
-      const imageURL = "https://i.imgur.com/TfizXoz.jpeg";
+      const imageURL = "https://res.cloudinary.com/mahiexe/image/upload/v1747639728/mahi/1747639727021-162253750.jpg";
       const fallbackImage = path.join(__dirname, "fallback.jpg"); // Optional local backup
 
       const getImageStream = async () => {
@@ -86,7 +86,7 @@ BOT STATUS
 ┏━━━━━━━━━━━━━━━┓
 ┃ 💤 𝖴𝗉𝗍: ${uptimeFormatted}
 ┃ ⚡ 𝖯𝗂𝗇𝗀: ${ping}ms
-┃ 👑 𝖮𝗐𝗇𝖾𝗋: Ma Hi
+┃ 👑 𝖮𝗐𝗇𝖾𝗋: HUSSAIN 
 ┗━━━━━━━━━━━━━━━┛
 
 𝗕𝗼𝘁 𝗶𝘀 𝗮𝗹𝗶𝘃𝗲 𝗮𝗻𝗱 𝗿𝗲𝗮𝗱𝘆 𝘁𝗼 𝗿𝘂𝗹𝗲!

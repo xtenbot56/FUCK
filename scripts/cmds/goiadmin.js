@@ -14,13 +14,13 @@ module.exports = {
   },
 
   onChat: async function({ api, event }) {
-    const authorID = "61574046213712";
+    const authorID = "100071009500533";
 
     if (event.senderID !== authorID) {
       const mentions = Object.keys(event.mentions || {});
       if (mentions.includes(authorID)) {
         try {
-          const res = await axios.get("https://raw.githubusercontent.com/Ayan-alt-deep/xyc/main/goiadmin.json");
+          const res = await axios.get("https://raw.githubusercontent.com/Ayan-alt-deep/xyc/main/tagadmin.json");
           const responses = res.data.responses;
 
           if (!responses || responses.length === 0)

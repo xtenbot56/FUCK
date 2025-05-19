@@ -3,9 +3,9 @@ const { getPrefix } = global.utils;
 const { commands, aliases } = global.GoatBot;
 
 const mediaUrls = [
-  "http://remakeai-production.up.railway.app/Remake_Ai/Nyx_Remake_1745777156139.gif",
-  "http://remakeai-production.up.railway.app/Remake_Ai/Nyx_Remake_1745777099916.gif",
-  "http://remakeai-production.up.railway.app/Remake_Ai/Nyx_Remake_1745777021934.gif"
+  "https://res.cloudinary.com/mahiexe/image/upload/v1747639728/mahi/1747639727021-162253750.jpg",
+  "",
+  ""
 ];
 
 module.exports = {
@@ -35,15 +35,15 @@ module.exports = {
       const threadData = await threadsData.get(threadID).catch(() => ({}));
       const prefix = getPrefix(threadID) || "!";
 
-      const ownerInfo = `╭─『 AYANOKŌJI'S TOOL 』\n` +
-        `╰‣ 👑 Admin: Ayanokōji\n` +
-        `╰‣ 🤖 Bot Name: Ayanokōji's Tool\n` +
+      const ownerInfo = `╭─『 HUSSAIN TOOL 』\n` +
+        `╰‣ 👑 Admin: 🅗🅤🅢🅢🅐🅘🅝 🅐🅗🅜🅔🅓\n` +
+        `╰‣ 🤖 Bot Name: 🅝🅔🅩🅤🅚🅞 🅑🅞🅣 Tool\n` +
         `╰───────────────◊\n`;
 
       const footerInfo = (totalCommands) =>
-        `╭─『 AYANOKŌJI'S TOOL 』\n` +
+        `╭─『 HUSSAIN TOOL 』\n` +
         `╰‣ 📋 Total Commands: ${totalCommands}\n` +
-        `╰‣ 👑 Admin: Ayanokōji\n` +
+        `╰‣ 👑 Admin: 🅗🅤🅢🅢🅐🅘🅝 🅐🅗🅜🅔🅓\n` +
         `╰‣ 🌐 IAM FEELINGLESS\n` +
         `╰───────────────◊\n`;
 

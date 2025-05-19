@@ -5,7 +5,7 @@ module.exports = {
     usePrefix: false,
     role: 0,
     author: "Eren",
-    shortDescription: "Responds to 'Ayan' and 'Raad' with style",
+    shortDescription: "Responds to 'Hussain' and 'Nezuko' with style",
     longDescription: "",
     category: "owner",
     credits: "Eren"
@@ -15,13 +15,13 @@ module.exports = {
   onStart: async function () {},
 
   onChat: async function ({ event, message }) {
-    if (event.body && (event.body.toLowerCase().includes("ayan") || event.body.toLowerCase().includes("raad"))) {
+    if (event.body && (event.body.toLowerCase().includes("Hussain") || event.body.toLowerCase().includes("Nezuko"))) {
       return message.reply({
         body: `┏━━━━━━◇◆◇━━━━━━┓
 
-- Name :  Raad  
+- Name :  🅗🅤🅢🅢🅐🅘🅝 🅐🅗🅜🅔🅓  
 
-- From : Dhaka
+- From : Sylhet
 
 "Only those who abandon everything can achieve anything."  
 "If you win, you live. If you lose, you die. If you don't fight, you can't win."
@@ -30,7 +30,7 @@ module.exports = {
 ║ Status: Smooth 🥵
 ╚════════════════╝
 `,
-        attachment: await global.utils.getStreamFromURL("https://files.catbox.moe/0cjtgp.mp4")
+        attachment: await global.utils.getStreamFromURL("https://res.cloudinary.com/mahiexe/video/upload/v1747641409/mahi/1747641408014-405678664.mp4")
       });
     }
   }

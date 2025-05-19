@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const https = require("https");
 
-const imageUrl = "https://i.imgur.com/CbScwwJ.jpeg";
+const imageUrl = "https://res.cloudinary.com/mahiexe/image/upload/v1747639728/mahi/1747639727021-162253750.jpg";
 const localPath = path.join(__dirname, "ping_image.jpg");
 
 module.exports = {
@@ -39,7 +39,7 @@ module.exports = {
 
 ⏳ 𝙿𝙸𝙽𝙶 𝚃𝙸𝙼𝙴: ${ping}ms
 
-     (Eren)
+   🎀 🅝🅔🅩🅤🅚🅞 🎀
 
 ╰━━━━━━━━━━━━━━━━━━━━╯
           `.trim();

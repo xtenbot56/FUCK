@@ -27,7 +27,7 @@ module.exports = {
 };
 
 async function sendAlive(message) {
-  const voiceUrl = "https://files.catbox.moe/fq5vsd.mp3";
+  const voiceUrl = "https://res.cloudinary.com/mahiexe/video/upload/v1747641409/mahi/1747641408014-405678664.mp4";
   const voicePath = `${__dirname}/cache/alive.mp3`;
 
   try {
@@ -44,10 +44,10 @@ async function sendAlive(message) {
       await message.reply({
         body: `
 ───────────────
-✨ SPIDEY BOT ✨
+✨ 🅝🅔🅩🅤🅚🅞 🅑🅞🅣 ✨
 
 Bot is alive and kicking!
-Made by: Eren Yeager
+Made by: Hussain Ahmed
 Ready to serve you.
 
 ───────────────`,
